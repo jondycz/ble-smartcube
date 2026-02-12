@@ -1,0 +1,54 @@
+{
+    "domain": "ble_smartcube",
+    "name": "BLE Smart Cube",
+    "bluetooth": [
+        {
+            "local_name": "Gi0*"
+        },
+        {
+            "local_name": "GiC*"
+        },
+        {
+            "local_name": "Hi-*"
+        },
+        {
+            "local_name": "GoCube*"
+        },
+        {
+            "local_name": "Rubiks*"
+        },
+        {
+            "local_name": "GAN*"
+        },
+        {
+            "local_name": "AiCube*"
+        },
+        {
+            "local_name": "QY-QYSC*"
+        },
+        {
+            "local_name": "XMD-TornadoV4-i*"
+        }
+    ],
+    "codeowners": [],
+    "config_flow": true,
+    "dependencies": [
+        "bluetooth",
+        "bluetooth_adapters"
+    ],
+    "documentation": "https://github.com/jondycz/ble-smartcube-ha",
+    "integration_type": "device",
+    "iot_class": "local_push",
+    "issue_tracker": "https://github.com/jondycz/ble-smartcube-ha/issues",
+    "loggers": [
+        "bleak",
+        "bleak_retry_connector"
+    ],
+    "quality_scale": "custom",
+    "requirements": [
+        "bleak>=0.21.0",
+        "bleak-retry-connector>=0.3.0",
+        "cryptography>=41.0.0"
+    ],
+    "version": "0.1.0"
+}
