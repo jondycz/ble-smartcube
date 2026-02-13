@@ -36,10 +36,10 @@
         "bluetooth",
         "bluetooth_adapters"
     ],
-    "documentation": "https://github.com/jondycz/ble-smartcube-ha",
+    "documentation": "https://github.com/jondycz/ble-smartcube",
     "integration_type": "device",
     "iot_class": "local_push",
-    "issue_tracker": "https://github.com/jondycz/ble-smartcube-ha/issues",
+    "issue_tracker": "https://github.com/jondycz/ble-smartcube/issues",
     "loggers": [
         "bleak",
         "bleak_retry_connector"
@@ -52,3 +52,4 @@
     ],
     "version": "0.1.0"
 }
+
