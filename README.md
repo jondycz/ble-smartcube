@@ -1,5 +1,7 @@
 # BLE Smart Cube
 
+![installation_badge](https://img.shields.io/badge/dynamic/json?color=41BDF5&logo=home-assistant&label=integration%20usage&suffix=%20installs&cacheSeconds=15600&url=https://analytics.home-assistant.io/custom_integrations.json&query=$.ble_smartcube.total)
+
 Home Assistant integration for Bluetooth smart cubes.
 
 ## Supported cubes
@@ -27,7 +29,7 @@ An Auto-Connect switch lets you disable connections when you want to play withou
 
 ## HACS
 
-If you have HACS installed, add this repository (jondycz/ble-smartcube) as a custom repository of type "Integration".
+If you have HACS installed, add this repository ([jondycz/ble-smartcube](https://my.home-assistant.io/redirect/hacs_repository/?owner=jondycz&repository=ble-smartcube&category=integration)) as a custom repository of type "Integration".
 
 See https://hacs.xyz/docs/faq/custom_repositories/
 
@@ -35,3 +37,4 @@ See https://hacs.xyz/docs/faq/custom_repositories/
 
 - Keep Auto-Connect enabled if you want the cube to reconnect on wake/advertise.
 - Turn Auto-Connect off to stop connecting and disconnect the cube.
+
