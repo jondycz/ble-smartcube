@@ -47,10 +47,11 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     entry_cube_type = entry.data.get(CONF_CUBE_TYPE, "")
     cube_model = get_cube_model(entry_cube_type)
     connection = create_connection(cube_model.cube_type)
+    auto_connect_enabled = entry.options.get("auto_connect_enabled", True)
     hass.data.setdefault(DOMAIN, {})[entry.entry_id] = {
         "connection": connection,
         "unsub_ble": None,
-        "auto_connect_enabled": True,
+        "auto_connect_enabled": auto_connect_enabled,
         "set_auto_connect": None,
         "cube_model": cube_model,
     }
@@ -192,7 +193,10 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
         connect_state["reconnect_task"] = hass.async_create_task(_reconnect())
 
     async def _set_auto_connect(enabled: bool) -> None:
+        options = dict(entry.options)
+        options["auto_connect_enabled"] = enabled
         entry_data["auto_connect_enabled"] = enabled
+        hass.config_entries.async_update_entry(entry, options=options)
         unsub = entry_data.get("unsub_ble")
         if not enabled:
             if unsub:
@@ -213,7 +217,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     entry_data["set_auto_connect"] = _set_auto_connect
     entry_data["unsub_state"] = connection.register_callback(_handle_connection_state)
 
-    await _set_auto_connect(True)
+    await _set_auto_connect(auto_connect_enabled)
     await _async_try_connect("startup")
     if not connection.available:
         _LOGGER.debug(
